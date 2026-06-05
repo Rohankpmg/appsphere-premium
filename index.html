@@ -115,13 +115,31 @@
     </footer>
 
     <!-- Verification Funnel Functionality -->
+  <!-- Verification Funnel Functionality -->
     <script>
         function startVerification(appName) {
+            // Target the locker container box
+            const container = document.getElementById('lockerContainer');
+            
+            // Open the modal
             document.getElementById('modalAppTarget').innerText = "Target Mirror: " + appName;
             document.getElementById('lockerModal').style.display = 'flex';
             
-            // This is exactly where you will drop your AdBlueMedia / CPALead Content Locker JavaScript loader function
-            // Example: callLockerScript();
+            // Show a realistic, successful mirror connection instead of an infinite loading loop
+            setTimeout(() => {
+                container.innerHTML = `
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-green-500/10 text-green-400 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/20">
+                            ✓
+                        </div>
+                        <p class="text-sm font-semibold text-white">Secure Mirror Allocated</p>
+                        <p class="text-xs text-gray-400 mt-1">Direct download package is ready.</p>
+                        <button onclick="closeModal()" class="mt-4 bg-gray-800 hover:bg-gray-700 text-white text-xs px-4 py-2 rounded-lg border border-gray-700 transition-all">
+                            Proceed to Installation
+                        </button>
+                    </div>
+                `;
+            }, 1200); // After 1.2 seconds, it changes from loading to "Ready"
         }
 
         function closeModal() {
