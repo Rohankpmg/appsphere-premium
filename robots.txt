@@ -1,0 +1,14 @@
+# User-Agent * means these rules apply to all web crawlers and search engines
+User-agent: *
+
+# Allow search engines to index your main landing page
+Allow: /$
+Allow: /index.html
+
+# Disallow crawling of asset directories to protect your locker scripts and images
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Host reference
+Host: https://rohankpmg.github.io/appsphere-premium/
